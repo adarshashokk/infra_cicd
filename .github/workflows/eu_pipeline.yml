@@ -1,4 +1,4 @@
-name: 'Infra Deployment'
+name: 'Infra Deployment East US'
 
 on:
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
     defaults:
       run:
         # Change the working directory based on our environment
-        working-directory: ${{ github.workspace }}/Infra/
+        working-directory: ${{ github.workspace }}/Infra/east_us
 
     steps:
     # Checkout the repository to the GitHub Actions runner
@@ -74,7 +74,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan 
-      run: terraform plan -var-file=env/${{ github.event.inputs.environment }}.tfvars
+      run: terraform plan -var-file=east_us/env/${{ github.event.inputs.environment }}.tfvars
      
     - name: Create Approval Issue
       uses: trstringer/manual-approval@v1
@@ -89,4 +89,4 @@ jobs:
                 - [ ] Deny
        
     - name: Terraform Apply
-      run: terraform apply -var-file=env/${{ github.event.inputs.environment }}.tfvars -auto-approve
+      run: terraform apply -var-file=east_us/env/${{ github.event.inputs.environment }}.tfvars -auto-approve
