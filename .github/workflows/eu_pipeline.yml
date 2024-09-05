@@ -9,9 +9,9 @@ on:
         default: "dev"
         type: choice
         options:
-          - dev
-          - qa
-          - prod
+          - Dev
+          - QA
+          - Prod
           
 permissions:
   id-token: write  # Add this line to enable OIDC token request
