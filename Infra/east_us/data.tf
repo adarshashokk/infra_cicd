@@ -1,5 +1,5 @@
 data "azurerm_resource_group" "rg" {
-  name = "adarsh_rg01"
+  name = var.resource_group_name
 }
 output "id" {
   value = data.azurerm_resource_group.rg.id
