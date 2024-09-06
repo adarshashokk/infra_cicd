@@ -58,9 +58,15 @@ jobs:
 
     - name: Verify backend.tf
       run: cat backend.tf 
-
+    
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+        
     - name: Checkov GitHub Action
-      uses: bridgecrewio/checkov-action@v12
+      id: checkov
+      uses: bridgecrewio/checkov-action@master
       with:
           # This will add both a CLI output to the console and create a results.sarif file
           directory: ${{ github.workspace }}/Infra/east_us
