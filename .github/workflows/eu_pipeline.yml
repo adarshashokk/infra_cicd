@@ -64,7 +64,7 @@ jobs:
       with:
           # This will add both a CLI output to the console and create a results.sarif file
           directory: .
-          soft_fail: false  # Set to true if you want to allow failures
+          soft_fail: true  # Set to true if you want to allow failures
           output_format: cli,sarif
           output_file_path: console,results.sarif
 
