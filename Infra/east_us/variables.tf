@@ -34,7 +34,7 @@ variable "application_type"{
     description="Type of the Application Insights"
 }*/
 
-variable "backend_env"{
-    type= string
-    description="Number of days of data retention"
-    }
+# variable "backend_env"{
+#     type= string
+#     description="Number of days of data retention"
+#     }
