@@ -58,28 +58,27 @@ jobs:
 
     - name: Verify backend.tf
       run: cat backend.tf 
-    
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.8
-
-    - name: Install Checkov
-      run: |
-        python -m pip install --upgrade pip
-        pip install checkov
+  
 
     - name: Checkov GitHub Action
-      id: checkov
-      uses: bridgecrewio/checkov-action@master
+      uses: bridgecrewio/checkov-action@v12
       with:
-          # This will add both a CLI output to the console and create a results.sarif file
-          directory: ${{ github.workspace }}/Infra/east_us
-          soft_fail: true  # Set to true if you want to allow failures
+        # This will add both a CLI output to the console and create a results.sarif file
+        output_format: cli,sarif
+        output_file_path: console,results.sarif
+        
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v2
+        
+        # Results are generated only on a success or failure
+        # this is required since GitHub by default won't run the next step
+        # when the previous one has failed. Security checks that do not pass will 'fail'.
+        # An alternative is to add `continue-on-error: true` to the previous step
+        # Or 'soft_fail: true' to checkov.
+      if: success() || failure()
+      with:
+       sarif_file: results.sarif
 
-    - name: Run Checkov Directly
-      run: |
-        checkov -d ${{ github.workspace }}/Infra/east_us --soft-fail --output cli
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
