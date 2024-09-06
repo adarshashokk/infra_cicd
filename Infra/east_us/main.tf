@@ -3,7 +3,7 @@
 
 /***********Module for Log Analytics Workspace Creation****************************************/
 
-module log_analytics{
+module log_analytics" {
 source= "../../modules/log_analytics"
 location=var.location
 log_analytics_name = var.log_analytics_name
