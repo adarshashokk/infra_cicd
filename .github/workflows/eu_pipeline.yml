@@ -57,22 +57,12 @@ jobs:
       run:  ./generate_backend.sh
 
     - name: Verify backend.tf
-      run: cat backend.tf 
-      
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.8
-
-    - name: Install Checkov
-      run: |
-        python -m pip install --upgrade pip
-        pip install checkov  
+      run: cat backend.tf  
 
     - name: Checkov GitHub Action
       uses: bridgecrewio/checkov-action@v12
       with:
-        directory: ${{ github.workspace }}/Infra
+        directory: ${{ github.workspace }}/Infra/east_us
         # This will add both a CLI output to the console and create a results.sarif file
         output_format: cli,sarif
         output_file_path: console,results.sarif
