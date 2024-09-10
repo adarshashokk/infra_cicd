@@ -64,8 +64,8 @@ jobs:
       with:
         directory: ${{ github.workspace }}/Infra/east_us
         # This will add both a CLI output to the console and create a results.sarif file
-        output_format: cli,sarif
-        output_file_path: console,results.sarif
+        # output_format: cli,sarif
+        # output_file_path: console,results.sarif
         soft_fail: true  # Set to true if you want to allow failures
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
