@@ -28,10 +28,10 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       AZURE_STORAGE_ACCESS_KEY: ${{ secrets.AZURE_STORAGE_ACCESS_KEY }}
-      BACKEND_RESOURCE_GROUP_NAME: ${{ vars.BACKEND_RESOURCE_GROUP_NAME }}
-      BACKEND_STORAGE_ACCOUNT_NAME: ${{ vars.BACKEND_STORAGE_ACCOUNT_NAME }}
-      BACKEND_CONTAINER_NAME: ${{ vars.BACKEND_CONTAINER_NAME }}
-      BACKEND_KEY: ${{ github.event.inputs.environment }}
+     # BACKEND_RESOURCE_GROUP_NAME: ${{ vars.BACKEND_RESOURCE_GROUP_NAME }}
+      #BACKEND_STORAGE_ACCOUNT_NAME: ${{ vars.BACKEND_STORAGE_ACCOUNT_NAME }}
+      #BACKEND_CONTAINER_NAME: ${{ vars.BACKEND_CONTAINER_NAME }}
+      #BACKEND_KEY: ${{ github.event.inputs.environment }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -50,14 +50,14 @@ jobs:
       with:
         terraform_version: 1.8.5
 
-    - name: Make script executable
-      run: chmod +x ./generate_backend.sh
+    #- name: Make script executable
+    #  run: chmod +x ./generate_backend.sh
 
-    - name: Generate backend.tf
-      run:  ./generate_backend.sh
+    #- name: Generate backend.tf
+     # run:  ./generate_backend.sh
 
-    - name: Verify backend.tf
-      run: cat backend.tf  
+    #- name: Verify backend.tf
+     # run: cat backend.tf  
 
     - name: Checkov GitHub Action
       uses: bridgecrewio/checkov-action@v12
@@ -70,10 +70,22 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
+      env:
+          AZURE_STORAGE_ACCESS_KEY: ${{ secrets.AZURE_STORAGE_ACCESS_KEY }}
+          BACKEND_RESOURCE_GROUP_NAME: ${{ vars.BACKEND_RESOURCE_GROUP_NAME }}
+          BACKEND_STORAGE_ACCOUNT_NAME: ${{ vars.BACKEND_STORAGE_ACCOUNT_NAME }}
+          BACKEND_CONTAINER_NAME: ${{ vars.BACKEND_CONTAINER_NAME }}
+          BACKEND_KEY: ${{ github.event.inputs.environment }}
       run: terraform init -reconfigure
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan 
+      env:
+          AZURE_STORAGE_ACCESS_KEY: ${{ secrets.AZURE_STORAGE_ACCESS_KEY }}
+          BACKEND_RESOURCE_GROUP_NAME: ${{ vars.BACKEND_RESOURCE_GROUP_NAME }}
+          BACKEND_STORAGE_ACCOUNT_NAME: ${{ vars.BACKEND_STORAGE_ACCOUNT_NAME }}
+          BACKEND_CONTAINER_NAME: ${{ vars.BACKEND_CONTAINER_NAME }}
+          BACKEND_KEY: ${{ github.event.inputs.environment }}
       run: terraform plan -var-file=env/${{ github.event.inputs.environment }}.tfvars
      
     - name: Create Approval Issue
@@ -89,4 +101,10 @@ jobs:
                 - [ ] Deny
        
     - name: Terraform Apply
+      env:
+          AZURE_STORAGE_ACCESS_KEY: ${{ secrets.AZURE_STORAGE_ACCESS_KEY }}
+          BACKEND_RESOURCE_GROUP_NAME: ${{ vars.BACKEND_RESOURCE_GROUP_NAME }}
+          BACKEND_STORAGE_ACCOUNT_NAME: ${{ vars.BACKEND_STORAGE_ACCOUNT_NAME }}
+          BACKEND_CONTAINER_NAME: ${{ vars.BACKEND_CONTAINER_NAME }}
+          BACKEND_KEY: ${{ github.event.inputs.environment }}
       run: terraform apply -var-file=env/${{ github.event.inputs.environment }}.tfvars -auto-approve
