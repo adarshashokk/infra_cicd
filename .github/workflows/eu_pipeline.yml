@@ -84,7 +84,6 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan 
-      env:
       run: terraform plan -var-file=env/${{ github.event.inputs.environment }}.tfvars
      
     #- name: Create Approval Issue
