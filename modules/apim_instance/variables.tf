@@ -15,11 +15,11 @@ variable "sku_apim_instance"{
     description="SKU of the API Management Instance"
 }
 variable "publisher_email"{
-    type=number
+    type=string
     description="Publisher Email"
     }
 variable "publisher_name"{
-    type=number
+    type=string
     description="Publisher Name"
     }
 variable "subnet_id"{}
