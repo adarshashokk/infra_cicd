@@ -10,3 +10,9 @@ retention_in_days=30
 /******Values for Application Insights*******/
 application_insights_name="ai-eu-prod-001"
 application_type = "web"
+
+/*Values for Apim Instance*****/
+apim_instance_name= "apim-eu-prod-001"
+publisher_name= "terese"
+publisher_email="teresemathew123@gmail.com"
+sku_apim_instance="Developer_1"
