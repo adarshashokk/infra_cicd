@@ -40,10 +40,6 @@ variable "apim_instance_name"{
     type=string
     description="Name of the API Management Instance"
 }
-variable "resource_group_name"{
-    type=string
-    description="Resource Group name of the API Management Instance"
-}
 variable "sku_apim_instance"{
     type=string
     description="SKU of the API Management Instance"
