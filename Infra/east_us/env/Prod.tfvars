@@ -8,4 +8,4 @@ retention_in_days=30
 
 /******Values for Application Insights*******/
 application_insights_name="ai-eu-prod-001"
-application_type = "Web"
+application_type = "web"
