@@ -1,6 +1,7 @@
 location= "East US"
 resource_group_name = "rg-storage-ue-prod-001"
-
+vnet_name= "test"
+subnet_name="default"
 /******Values for Log Analytics Workspace*******/
 log_analytics_name="la-eu-prod-001"
 sku_log="PerGB2018"

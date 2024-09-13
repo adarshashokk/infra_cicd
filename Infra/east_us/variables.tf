@@ -1,6 +1,5 @@
 
 
-
 variable "resource_group_name"{
     type= string
     description="Name of the resourse group"
@@ -9,6 +8,9 @@ variable "location"{
     type=string
     description="Location of the Resources"
 }
+
+variable "vnet_name"{}
+variable "subnet_name"{}
 
 /*Log analytics Workspace Variables*/
 variable "log_analytics_name"{
@@ -34,7 +36,7 @@ variable "application_type"{
     description="Type of the Application Insights"
 }
 /******************Apim Management Instance********/
-/*variable "apim_instance_name"{
+variable "apim_instance_name"{
     type=string
     description="Name of the API Management Instance"
 }
@@ -53,4 +55,4 @@ variable "publisher_email"{
 variable "publisher_name"{
     type=number
     description="Publisher Name"
-    }*/
+    }

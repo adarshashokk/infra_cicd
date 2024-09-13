@@ -22,9 +22,9 @@ variable "publisher_name"{
     type=number
     description="Publisher Name"
     }
-
+variable "subnet_id"{}
 /**Diagnostic settings****/
 
-variable "apim_diagnostics"{}
+/*variable "apim_diagnostics"{}
 variable "log_analytics_workspace_id"{}
-variable "application_insights_id"{}
+variable "application_insights_id"{}*/

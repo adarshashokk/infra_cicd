@@ -7,7 +7,7 @@ resource "azurerm_api_management" "apim_instance" {
   sku_name            = var.sku_apim_instance
   virtual_network_type= "Internal"
    virtual_network_configuration {
-    subnet_id = data.azurerm_subnet.apim_instance.id
+    subnet_id = var.subnet_id
   }
 }
 
