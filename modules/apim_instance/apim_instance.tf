@@ -12,13 +12,13 @@ resource "azurerm_api_management" "apim_instance" {
 }
 
 # Diagnostic settings to send logs to Log Analytics and Application Insights
-/*resource "azurerm_api_management_logger" "example" {
-  name                = "example-apimlogger"
-  api_management_name = azurerm_api_management.example.name
-  resource_group_name = azurerm_resource_group.example.name
+/*resource "azurerm_api_management_logger" "apim_instance" {
+  name                = var.apimlogger
+  api_management_name = azurerm_api_management.apim_instance.name
+  resource_group_name = var.resource_group_name
 
   application_insights {
-    instrumentation_key = azurerm_application_insights.example.instrumentation_key
+    instrumentation_key = var.instrumentation_key
   }
 }
 
@@ -70,8 +70,5 @@ resource "azurerm_api_management_diagnostic" "example" {
     ]
   }
 }
-Copy
-Argument Reference
-The following arguments are supported:
 
 */
