@@ -1,16 +1,23 @@
 
 
 variable "resource_group_name"{
+    default="rg-test123"
     type= string
     description="Name of the resourse group"
     }
 variable "location"{
+    default ="East Us"
     type=string
     description="Location of the Resources"
 }
 
-variable "vnet_name"{}
-variable "subnet_name"{}
+variable "vnet_name"{
+default="testvnet"
+}
+variable "subnet_name"{
+    default="testsnet"
+}
+
 
 /*Log analytics Workspace Variables*/
 variable "log_analytics_name"{
@@ -19,6 +26,7 @@ variable "log_analytics_name"{
     description="Name of the Log analytics workspace"
 }
 variable "sku_log"{
+    default="PerGB2018"
     type=string
     description="SKU of the Log analytics workspace"
 }
@@ -29,11 +37,13 @@ variable "retention_in_days"{
     }
 /***************Application Insights name****************/
 variable "application_insights_name"{
+    default="testappinsi"
     type=string
     description="Name of the Application Insights"
 }
 
 variable "application_type"{
+    default="web"
     type=string
     description="Type of the Application Insights"
 }
