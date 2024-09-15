@@ -26,13 +26,13 @@ variable "log_analytics_name"{
     description="Name of the Log analytics workspace"
 }
 variable "sku_log"{
-    default="PerGB2018"
+    //default="PerGB2018"
     type=string
     description="SKU of the Log analytics workspace"
 }
 variable "retention_in_days"{
     type=number
-    default = 30
+   // default = 30
     description="Number of days of data retention"
     }
 /***************Application Insights name****************/
