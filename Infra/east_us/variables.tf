@@ -14,6 +14,7 @@ variable "subnet_name"{}
 
 /*Log analytics Workspace Variables*/
 variable "log_analytics_name"{
+    default= "testlog12"
     type=string
     description="Name of the Log analytics workspace"
 }
@@ -23,6 +24,7 @@ variable "sku_log"{
 }
 variable "retention_in_days"{
     type=number
+    default = 30
     description="Number of days of data retention"
     }
 /***************Application Insights name****************/
