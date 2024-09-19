@@ -11,12 +11,12 @@ variable "location"{
     description="Location of the Resources"
 }
 
-variable "vnet_name"{
-default="testvnet"
-}
-variable "subnet_name"{
-    default="testsnet"
-}
+# variable "vnet_name"{
+# default="testvnet"
+# }
+# variable "subnet_name"{
+#     default="testsnet"
+# }
 
 
 /*Log analytics Workspace Variables*/
@@ -35,32 +35,32 @@ variable "retention_in_days"{
    // default = 30
     description="Number of days of data retention"
     }
-/***************Application Insights name****************/
-variable "application_insights_name"{
-    default="testappinsi"
-    type=string
-    description="Name of the Application Insights"
-}
+# /***************Application Insights name****************/
+# variable "application_insights_name"{
+#     default="testappinsi"
+#     type=string
+#     description="Name of the Application Insights"
+# }
 
-variable "application_type"{
-    default="web"
-    type=string
-    description="Type of the Application Insights"
-}
-/******************Apim Management Instance********/
-variable "apim_instance_name"{
-    type=string
-    description="Name of the API Management Instance"
-}
-variable "sku_apim_instance"{
-    type=string
-    description="SKU of the API Management Instance"
-}
-variable "publisher_email"{
-    type=string
-    description="Publisher Email"
-    }
-variable "publisher_name"{
-    type=string
-    description="Publisher Name"
-    }
+# variable "application_type"{
+#     default="web"
+#     type=string
+#     description="Type of the Application Insights"
+# }
+# /******************Apim Management Instance********/
+# variable "apim_instance_name"{
+#     type=string
+#     description="Name of the API Management Instance"
+# }
+# variable "sku_apim_instance"{
+#     type=string
+#     description="SKU of the API Management Instance"
+# }
+# variable "publisher_email"{
+#     type=string
+#     description="Publisher Email"
+#     }
+# variable "publisher_name"{
+#     type=string
+#     description="Publisher Name"
+#     }
