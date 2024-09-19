@@ -1,4 +1,12 @@
 terraform {
+  cloud { 
+    organization = "Demo-aep"
+
+    workspaces { 
+      name = "develop01"
+    } 
+  }
+
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
