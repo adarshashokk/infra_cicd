@@ -56,10 +56,10 @@ jobs:
     #     echo $TFE_TOKEN | terraform login --token
     #     terraform workspace select $TF_WORKSPACE || terraform workspace new $TF_WORKSPACE
 
-    - name: Install Azure CLI
-      run: |
-        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-        az --version  # Verify installation
+    # - name: Install Azure CLI
+    #   run: |
+    #     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    #     az --version  # Verify installation
 
     # - name: Configure Terraform Cloud token
     #   run: |

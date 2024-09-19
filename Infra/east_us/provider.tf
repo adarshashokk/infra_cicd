@@ -1,22 +1,15 @@
+# We strongly recommend using the required_providers block to set the
+# Azure Provider source and version being used
 terraform {
-  cloud { 
-    
-    organization = "Adarshk" 
-
-    workspaces { 
-      name = "develop01" 
-    } 
-  }
-
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
-      version = "4.0.1"
+      source  = "hashicorp/azurerm"
+      version = "~> 4.0"
     }
   }
 }
 
+# Configure the Microsoft Azure Provider
 provider "azurerm" {
-  features{}
- subscription_id             = "e7792daf-ec91-464d-967f-d21cba72f748"
+  features {}
 }
