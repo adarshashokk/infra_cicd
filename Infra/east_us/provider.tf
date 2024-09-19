@@ -1,9 +1,10 @@
 terraform {
   cloud { 
-    organization = "Demo-aep" 
+    
+    organization = "Adarshk" 
 
     workspaces { 
-      name = "develop01"
+      name = "develops02" 
     } 
   }
 

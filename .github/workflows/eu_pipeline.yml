@@ -9,7 +9,7 @@ on:
         default: "dev"
         type: choice
         options:
-          - develop01
+          - develop02
           - QA
           - Prod
           
