@@ -11,6 +11,6 @@ output "id" {
 #   resource_group_name  = var.resource_group_name
 # }
 
-output "subnet_id" {
-  value = data.azurerm_subnet.subnet.id
-}
+# output "subnet_id" {
+#   value = data.azurerm_subnet.subnet.id
+# }
