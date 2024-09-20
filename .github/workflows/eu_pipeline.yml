@@ -30,7 +30,7 @@ permissions:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: ubuntu-latest
+    runs-on: RHEL8
     environment:  ${{ inputs.workspace }}
     env:
       TFE_TOKEN: ${{ secrets.TFE_TOKEN }}
