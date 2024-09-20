@@ -23,10 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:  ${{ inputs.workspace }}
     env:
-      # ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      # ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-      # ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      # ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       TFE_TOKEN: ${{ secrets.TFE_TOKEN }}
       TERRAFORM_HOSTNAME: ${{ secrets.TERRAFORM_HOSTNAME }}
       TF_WORKSPACE:  ${{ github.event.inputs.workspace }}
@@ -50,24 +46,8 @@ jobs:
         cli_config_credentials_hostname: ${{ secrets.TERRAFORM_HOSTNAME }}
         cli_config_credentials_token: ${{ secrets.TFE_TOKEN }}
 
-    # - name: Setup Terraform Enterprise Workspace
-    #   run: |
-    #     terraform login
-    #     echo $TFE_TOKEN | terraform login --token
-    #     terraform workspace select $TF_WORKSPACE || terraform workspace new $TF_WORKSPACE
-
-    # - name: Install Azure CLI
-    #   run: |
-    #     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-    #     az --version  # Verify installation
-
-    # - name: Configure Terraform Cloud token
-    #   run: |
-    #     mkdir -p ~/.terraform.d
-    #     echo '{"credentials": {"app.terraform.io": {"token": "${{ secrets.TFE_TOKEN }}"}}}' > ~/.terraform.d/credentials.tfrc.json
-
-    # - name: Select Terraform Workspace
-    #   run: echo "TF_WORKSPACE=${{ inputs.workspace }}" >> $GITHUB_ENV
+    - name: Select Terraform Workspace
+      run: echo "TF_WORKSPACE=${{ inputs.workspace }}" >> $GITHUB_ENV
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init 
