@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     environment:  ${{ inputs.workspace }}
     env:
-      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      # ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      # ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      # ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      # ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       TFE_TOKEN: ${{ secrets.TFE_TOKEN }}
       TERRAFORM_HOSTNAME: ${{ secrets.TERRAFORM_HOSTNAME }}
       TF_WORKSPACE:  ${{ github.event.inputs.workspace }}
