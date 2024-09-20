@@ -6,16 +6,17 @@ on:
       TF-organization:
         description: "Which organization to target"
         required: true
-        default: "Adarshk"
+        default: Adarshk
         type: choice
         options:
+          - Adarshk
           - aep01
           - aep02
 
       workspace:
         description: "Which TF workspace to deploy"
         required: true
-        default: "dev"
+        default: dev
         type: choice
         options:
           - develop01
