@@ -61,8 +61,8 @@ jobs:
         cli_config_credentials_hostname: ${{ secrets.TERRAFORM_HOSTNAME }}
         cli_config_credentials_token: ${{ secrets.TFE_TOKEN }}
 
-    - name: Select Terraform Workspace
-      run: echo "TF_WORKSPACE=${{ inputs.workspace }}" >> $GITHUB_ENV
+    # - name: Select Terraform Workspace
+    #   run: echo "TF_WORKSPACE=${{ inputs.workspace }}" >> $GITHUB_ENV
      
     - name: Make script executable
       run: chmod +x ./generate_backend.sh
