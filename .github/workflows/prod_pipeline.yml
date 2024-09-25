@@ -16,12 +16,16 @@ on:
       workspace:
         description: "Which TF workspace to deploy"
         required: true
-        default: dev
+        default: develop01
         type: choice
         options:
           - develop01
           - QA
           - Prod
+  push:
+    branches:
+      - main # Triggers when a merge occurs into the qa branch
+        
           
 permissions:
   id-token: write  # Add this line to enable OIDC token request
