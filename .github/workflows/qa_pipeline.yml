@@ -3,7 +3,7 @@ name: 'Infra prod Deployment East US'
 on:
   push:
     branches:
-      - qa-en # Triggers when a merge occurs into the qa branch
+      - qa-env # Triggers when a merge occurs into the qa branch
         
 permissions:
   id-token: write  # Add this line to enable OIDC token request
