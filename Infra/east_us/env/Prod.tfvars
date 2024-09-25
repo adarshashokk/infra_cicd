@@ -1,18 +1,9 @@
-location= "East US"
-resource_group_name = "rg-storage-ue-prod-001"
-vnet_name= "test"
-subnet_name="default"
+
+
 /******Values for Log Analytics Workspace*******/
-log_analytics_name="la-eu-prod-001"
+
+location= "East US"
+log_analytics_name="log-eu-develop-001"
+resource_group_name = "rg-storage-ue-prod-001"
 sku_log="PerGB2018"
 retention_in_days=30
-
-/******Values for Application Insights*******/
-application_insights_name="ai-eu-prod-001"
-application_type = "web"
-
-/*Values for Apim Instance*****/
-apim_instance_name= "apim-eu-prod-001"
-publisher_name= "terese"
-publisher_email="teresemathew123@gmail.com"
-sku_apim_instance="Developer_1"
