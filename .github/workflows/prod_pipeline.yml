@@ -39,8 +39,8 @@ jobs:
     env:
       TFE_TOKEN: ${{ secrets.TFE_TOKEN }}
       TERRAFORM_HOSTNAME: ${{ secrets.TERRAFORM_HOSTNAME }}
-      TF_WORKSPACE:  ${{ github.event.inputs.workspace }}
-      TF_ORGANIZATION:  ${{ github.event.inputs.TF-organization }}
+      TF_WORKSPACE:  "develop01"
+      TF_ORGANIZATION:  "Adarshk"
       
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
