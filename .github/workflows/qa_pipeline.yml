@@ -1,4 +1,4 @@
-name: 'Infra Deployment East US'
+name: 'Infra qa Deployment East US'
 
 on:
   workflow_dispatch:
