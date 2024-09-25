@@ -3,7 +3,7 @@ name: 'Infra prod Deployment East US'
 on:
   push:
     branches:
-      - qa-en # Triggers when a merge occurs into the qa branchwise
+      - main # Triggers when a merge occurs into the qa branchwise
 
           
 permissions:
