@@ -1,27 +1,27 @@
 name: 'Infra prod Deployment East US'
 
 on:
-  workflow_dispatch:
-    inputs:
-      TF-organization:
-        description: "Which organization to target"
-        required: true
-        default: Adarshk
-        type: choice
-        options:
-          - Adarshk
-          - aep01
-          - aep02
+#   workflow_dispatch:
+#     inputs:
+#       TF-organization:
+#         description: "Which organization to target"
+#         required: true
+#         default: Adarshk
+#         type: choice
+#         options:
+#           - Adarshk
+#           - aep01
+#           - aep02
 
-      workspace:
-        description: "Which TF workspace to deploy"
-        required: true
-        default: develop01
-        type: choice
-        options:
-          - develop01
-          - QA
-          - Prod
+#       workspace:
+#         description: "Which TF workspace to deploy"
+#         required: true
+#         default: develop01
+#         type: choice
+#         options:
+#           - develop01
+#           - QA
+#           - Prod
   push:
     branches:
       - main # Triggers when a merge occurs into the qa branch
@@ -35,7 +35,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment:  ${{ inputs.workspace }}
+    environment:  "develop01"
     env:
       TFE_TOKEN: ${{ secrets.TFE_TOKEN }}
       TERRAFORM_HOSTNAME: ${{ secrets.TERRAFORM_HOSTNAME }}
