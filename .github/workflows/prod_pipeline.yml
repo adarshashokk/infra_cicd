@@ -1,27 +1,10 @@
 name: 'Infra prod Deployment East US'
 
 on:
-  workflow_dispatch:
-    inputs:
-      TF-organization:
-        description: "Which organization to target"
-        required: true
-        default: Adarshk
-        type: choice
-        options:
-          - Adarshk
-          - aep01
-          - aep02
+  push:
+    branches:
+      - qa-en # Triggers when a merge occurs into the qa branch
 
-      workspace:
-        description: "Which TF workspace to deploy"
-        required: true
-        default: dev
-        type: choice
-        options:
-          - develop01
-          - QA
-          - Prod
           
 permissions:
   id-token: write  # Add this line to enable OIDC token request
@@ -30,13 +13,13 @@ permissions:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: RHEL8
+    runs-on: ubuntu-latest
     environment:  ${{ inputs.workspace }}
     env:
       TFE_TOKEN: ${{ secrets.TFE_TOKEN }}
       TERRAFORM_HOSTNAME: ${{ secrets.TERRAFORM_HOSTNAME }}
-      TF_WORKSPACE:  ${{ github.event.inputs.workspace }}
-      TF_ORGANIZATION:  ${{ github.event.inputs.TF-organization }}
+      TF_WORKSPACE:  "develop01"
+      TF_ORGANIZATION:  "Adarshk"
       
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -57,8 +40,8 @@ jobs:
         cli_config_credentials_hostname: ${{ secrets.TERRAFORM_HOSTNAME }}
         cli_config_credentials_token: ${{ secrets.TFE_TOKEN }}
 
-    - name: Select Terraform Workspace
-      run: echo "TF_WORKSPACE=${{ inputs.workspace }}" >> $GITHUB_ENV
+    # - name: Select Terraform Workspace
+    #   run: echo "TF_WORKSPACE=${{ inputs.workspace }}" >> $GITHUB_ENV
      
     - name: Make script executable
       run: chmod +x ./generate_backend.sh
@@ -73,9 +56,9 @@ jobs:
     - name: Terraform Init 
       run: terraform init
      
-    # Generates an execution plan for Terraform
-    - name: Terraform Plan 
-      run: terraform plan -var-file=env/${{ github.event.inputs.workspace }}.tfvars
+    # # Generates an execution plan for Terraform
+    # - name: Terraform Plan 
+    #   run: terraform plan -var-file=env/${{ github.event.inputs.workspace }}.tfvars
      
     # - name: Create Approval Issue
     #   uses: trstringer/manual-approval@v1
