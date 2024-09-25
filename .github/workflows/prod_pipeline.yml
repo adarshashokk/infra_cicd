@@ -77,9 +77,9 @@ jobs:
     - name: Terraform Init 
       run: terraform init
      
-    # Generates an execution plan for Terraform
-    - name: Terraform Plan 
-      run: terraform plan -var-file=env/${{ github.event.inputs.workspace }}.tfvars
+    # # Generates an execution plan for Terraform
+    # - name: Terraform Plan 
+    #   run: terraform plan -var-file=env/${{ github.event.inputs.workspace }}.tfvars
      
     # - name: Create Approval Issue
     #   uses: trstringer/manual-approval@v1
