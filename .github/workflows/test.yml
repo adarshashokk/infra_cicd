@@ -11,8 +11,9 @@ on:
 
 jobs:
   terraform:
-    name: Terraform Plan
-    runs-on: ubuntu-latest
+    name: 'Terraform'
+    runs-on: 'ubuntu-latest'
+    environment:  "Dev"
 
     steps:
     - name: Checkout repository
