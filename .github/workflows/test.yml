@@ -19,19 +19,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
-      with:
-        terraform_version: 1.5.7
-
     - name: Terraform Init
       run: terraform init
 
     - name: Terraform Plan
       run: terraform plan -input=false
-
-    - name: Upload plan file (optional)
-      uses: actions/upload-artifact@v4
-      with:
-        name: terraform-plan
-        path: plan.out
