@@ -1,9 +1,12 @@
 name: 'Infra prod Deployment East US'
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Terraform Plan"]
+    types:
+      - completed
     branches:
-      - main # Triggers when a merge occurs into the qa branchwise
+      - main
 
           
 permissions:
